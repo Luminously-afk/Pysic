@@ -39,17 +39,6 @@ d = downloader.Downloader()
 d.download_track(track.get_track_url(), "hello.mp3")
 ```
 
-Usage: main.py [OPTIONS]
-
-Options:
-  -title TEXT    Title of the song
-  -artist TEXT   Artist of the song
-  -album TEXT    Album of the song
-  -quality TEXT  Quality of the song. [LOW, HIGH, LOSSLESS, HI_RES,
-                 HI_RES_LOSSLESS]
-  --help         Show this message and exit.
-
-
 
 
 ## Project Structure
