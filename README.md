@@ -17,7 +17,7 @@ Pysic is a Python-based application that allows users to search for songs and do
 To get started with Pysic, you'll need to have Python installed on your system. You can install the required dependencies using `pip`:
 
 ```sh
-pip install requests tqdm
+pip install requests tqdm click
 ```
 
 ## Usage
@@ -38,6 +38,19 @@ track = api.get_track_url(tracks[0], "LOSSLESS")
 d = downloader.Downloader()
 d.download_track(track.get_track_url(), "hello.mp3")
 ```
+
+Usage: main.py [OPTIONS]
+
+Options:
+  -title TEXT    Title of the song
+  -artist TEXT   Artist of the song
+  -album TEXT    Album of the song
+  -quality TEXT  Quality of the song. [LOW, HIGH, LOSSLESS, HI_RES,
+                 HI_RES_LOSSLESS]
+  --help         Show this message and exit.
+
+
+
 
 ## Project Structure
 
