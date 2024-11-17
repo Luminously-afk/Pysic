@@ -6,6 +6,9 @@ class Track(object):
         self.id = kwargs.get('id')
         self.quality = kwargs.get('quality', "LOSSLESS")
         self.track_url = kwargs.get('track_url', "")
+        self.cover = kwargs.get('cover', "")
+        self.lyrics = kwargs.get('lyrics', "")
+        self.sync_lyrics = False
 
     def __repr__(self):
         return f'{self.title} by {self.artist}'
@@ -37,3 +40,18 @@ class Track(object):
 
     def set_quality(self, quality):
         self.quality = quality
+
+    def get_cover(self):
+        return f"https://resources.tidal.com/images/{self.cover.replace("-", "/")}/1280x1280.jpg"
+
+    def get_lyrics(self):
+        return self.lyrics
+
+    def set_lyrics(self, lyrics):
+        self.lyrics = lyrics
+
+    def set_sync_lyrics(self, is_sync):
+        self.sync_lyrics = is_sync
+
+    def is_sync_lyrics(self):
+        return self.sync_lyrics
