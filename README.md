@@ -1,6 +1,6 @@
 # Pysic
 
-Welcome to Pysic! This is my very first project, and I'm just learning Python. This project is still in development, so expect frequent updates and improvements.
+Welcome to Pysic! This is my very first project, and I'm just learning Python. This project is still in development.
 
 ## Overview
 
