@@ -22,7 +22,7 @@ def get_track_url(track: Track, quality) -> Track:
     url = TRACK_API(id=track.get_id(), quality=quality)
     response = requests.get(url)
     if response.status_code == 404:
-        return get_track_url(track, "LOSSLESS")
+        return get_track_url(track, "HIGH")
     data = response.json()
     track.set_track_url(data[2]['OriginalTrackUrl'])
     track.set_quality(data[1]['audioQuality'])
