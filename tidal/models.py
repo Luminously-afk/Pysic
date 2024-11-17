@@ -31,3 +31,9 @@ class Track(object):
 
     def get_track_url(self):
         return self.track_url
+
+    def set_track_url(self, url):
+        self.track_url = url
+
+    def set_quality(self, quality):
+        self.quality = quality
