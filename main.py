@@ -1,8 +1,7 @@
 import os
 import click
 import time
-from tidal import api
-from tidal import downloader
+from tidal import api, downloader, metadata
 import os
 
 def print_name():
@@ -55,13 +54,22 @@ def search_song():
                            type=str)
     selected_song = api.get_track_url(selected_song, quality)
     print(f"Downloading {selected_song.get_title()} by {selected_song.get_artist()}")
+    if selected_song.get_quality() in ["HI_RES", "HI_RES_LOSSLESS", "LOSSLESS"]:
+        ex = "flac"
+    else:
+        ex = "mp3"
     downloader.Downloader().download_track(selected_song.get_track_url(),
-                                           f"{selected_song.get_title()} - {selected_song.get_artist()}.mp3")
+                                           f"{selected_song.get_title()} - {selected_song.get_artist()}.{ex}")
+    print("Download complete. Embedding metadata...")
+
+    metadata.add_metadata(f"{selected_song.get_title()} - {selected_song.get_artist()}.{ex}", selected_song)
+    print("Metadata added. Returning to the menu in 3 seconds...")
+    time.sleep(3)
 
 
 def print_search_results(list_song):
     for i, song in enumerate(list_song):
-        print(f"{i + 1}. {song.get_title()} - {song.get_album()}")
+        print(f"{i + 1}. {song.get_title()} - {song.get_artist()}")
 
 
 if __name__ == "__main__":
