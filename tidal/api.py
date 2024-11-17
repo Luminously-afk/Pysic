@@ -24,5 +24,6 @@ def get_track_url(track: Track, quality) -> Track:
     if response.status_code == 404:
         return get_track_url(track, "LOSSLESS")
     data = response.json()
-    track.set_track_url(data[2]['OriginalTrackURL'])
+    track.set_track_url(data[2]['OriginalTrackUrl'])
     track.set_quality(data[1]['audioQuality'])
+    return track
