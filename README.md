@@ -17,7 +17,7 @@ Pysic is a Python-based application that allows users to search for songs and do
 To get started with Pysic, you'll need to have Python installed on your system. You can install the required dependencies using `pip`:
 
 ```sh
-pip install requests tqdm
+pip install requests tqdm click
 ```
 
 ## Usage
